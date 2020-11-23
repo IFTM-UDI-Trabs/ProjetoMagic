@@ -1,0 +1,237 @@
+<html>
+    <head>
+        <title>Teste Animacao</title>
+        <meta charset="utf-8">
+
+        <style>
+            html, body{
+                margin: 0px;
+                padding: 0px;
+
+                font-family: 'Open Sans';
+                color: black;
+            }
+
+            #img{
+                width: 50px;
+                height: 72px;
+            }
+
+            #img:clicked{
+                animation: like 2s ease-in-out;
+                animation: like 2s ease-in-out .5s reverse;
+            }
+
+            @keyframes like {
+                0% {
+                    width: 50px;
+                    height: 72px;
+                    padding: 0px;
+                }
+
+                25% {
+                    width: calc((50px/4)*3);
+                    height: calc((72px/4)*3);
+                    padding-top: calc(((72px/4)*1)/3);
+                    /* padding-bottom: calc(((72px/4)*1)/2); */
+                    padding-left: calc(((50px/4)*1)/3);
+                    /* padding-right: calc(((50px/4)*1)/2); */
+                }
+
+                50% {
+                    width: calc((50px/4)*2);
+                    height: calc((72px/4)*2);
+                    padding-top: calc(((72px/4)*2)/3);
+                    /* padding-bottom: calc(((72px/4)*2)/2); */
+                    padding-left: calc(((50px/4)*2)/3);
+                    /* padding-right: calc(((50px/4)*2)/2); */
+                }
+
+                75% {
+                    width: calc((50px/4)*1);
+                    height: calc((72px/4)*1);
+                    padding-top: calc(((72px/4)*3)/3);
+                    /* padding-bottom: calc(((72px/4)*3)/2); */
+                    padding-left: calc(((50px/4)*3)/3);
+                    /* padding-right: calc(((50px/4)*3)/2); */
+                }
+
+                100% {
+                    width: 0px;
+                    height: 0px;
+                    display: none;
+                    padding-top: calc(((72px/4)*4)/3);
+                    /* padding-bottom: calc(((72px/4)*4)/2); */
+                    padding-left: calc(((50px/4)*4)/3);
+                    /* padding-right: calc(((50px/4)*4)/2); */
+                }
+            }
+
+            .box_total{
+                width: 600px;
+
+                margin: 5px;
+                padding: 0px;
+
+                border: 2px solid rgb(153, 153, 153);
+                border-radius: 15px;
+
+                box-sizing: border-box;
+            }
+
+            .box_inicio{
+                height: 90px;
+                /* display: flex;
+                justify-content: space-between;
+                flex-direction: row; */
+
+                border-bottom: 2px solid rgb(153, 153, 153);
+            }
+
+            .title{
+                width: 280px;
+                box-sizing: border-box;
+            }
+
+            .level{
+                width: 280px;
+                box-sizing: border-box;
+            }
+
+            .title p, .level p{
+                font-size: 24px;
+                margin: 0px;
+                padding-top: 10px;
+                padding-left: 10px;
+                color: #332d53;
+            }
+
+            .title p{
+                font-weight: bold;
+            }
+
+            .level p{
+                text-align: left;
+                font-size: 16px;
+            }
+
+            .info_basica{
+                border-bottom: 2px solid rgb(153, 153, 153);
+                padding-left: 10px;
+            }
+
+            .info_basica p{
+                letter-spacing: .6px;
+            }
+
+            .sub{
+                color: #332d53;
+                font-weight: bold;
+                letter-spacing: .6px;
+            }
+
+            .desc{
+                padding: 0 10px;
+                border-bottom: 2px solid rgb(153, 153, 153);
+            }
+
+            .desc p{
+                text-align: justify;
+                letter-spacing: .6px;
+            }
+
+            .like{
+                text-align: center;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                height: 72px;
+            }
+        </style>
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="box_total">
+            <div class="box_inicio">
+                <div class="title">
+                    <p>Bola de Fogo</p>
+                </div>
+                <div class="level">
+                    <p>3º nível de evocação</p>
+                </div>
+            </div>
+            <div class="info_basica">
+                <p><span class="sub">Conjugadores:</span> <span class="conj">Feiticeiro</span> <span class="conj">Mago</span></p>
+                <p><span class="sub">Alcance:</span> 150 pés</p>
+                <p><span class="sub">Componentes:</span> V S M (uma minúscula bola de guano de morcego e enxofre)</p>
+                <p><span class="sub">Duração:</span> Instântaneo</p>
+            </div>
+            <div class="desc">
+                <p>Um veio brilhante lampeja na ponta do seu dedo em direção a um ponto que você escolher, dentro do alcance, e então eclode com um estampido baixo, explodindo em chamas. Cada criatura em uma esfera de 6 metros de raio [20-foot radius], centrada no ponto, deve realizar um teste de resistência de Destreza. Um alvo sofre 8d6 de dano de fogo se falhar na resistência, ou metade desse dano se obtiver sucesso.</p>
+                <p>O fogo se espalha, dobrando esquinas. Ele incendeia objetos inflamáveis na área que não estejam sendo vestidos ou carregados.</p>
+                <p><span class="sub">Níveis Superiores:</span> Quando você conjurar essa magia usando um espaço de magia de 4° nível ou superior, o dano aumenta em 1d6 para cada nível do espaço acima do 3°.</p>
+            </div>
+            <div class="like">
+                <img src="pocao_vazio.png" id="img" onclick="animacao()">
+            </div>
+        </div>
+        <div>
+            <img src="pocao_vazio.png" id="img" onclick="animacao()">
+        </div>
+    </body>
+    <script type="text/javascript">
+        function troca(){
+            var img = document.getElementById('img');
+            img.style.animationName = 'like';
+            img.style.animationDuration = '1s';
+            img.style.animationTimingFunction = 'ease-in-out';
+            img.style.animationDirection = "reverse";
+
+            img.style = "";
+        } 
+
+        function animacao(){
+            var img = document.getElementById('img');
+            var src = img.getAttribute('src');
+
+            if (src == "pocao_vazio.png"){
+                // img.style.animationName = 'like';
+                // img.style.animationDuration = '1s';
+                // img.style.animationTimingFunction = "ease";
+
+                img.style.animationName = 'like';
+                img.style.animationDuration = '.1s';
+                img.style.animationTimingFunction = 'ease-in-out';
+                setTimeout(function (){
+                    img.style.display = 'none';
+                    img.src = "pocao_like.png";
+                }, 90);
+                setTimeout(function (){
+                    img.style.display = 'inline';
+                    img.style.animationName = 'like';
+                    img.style.animationDuration = '.1s';
+                    img.style.animationTimingFunction = 'ease-in-out';
+                    img.style.animationDirection = 'reverse';
+                }, 180)
+            } else {
+                img.style.animationName = 'like';
+                img.style.animationDuration = '.1s';
+                img.style.animationTimingFunction = 'ease-in-out';
+                setTimeout(function (){
+                    img.style.display = 'none';
+                    img.src = "pocao_vazio.png";
+                }, 90);
+                setTimeout(function (){
+                    img.style.display = 'inline';
+                    img.style.animationName = 'like';
+                    img.style.animationDuration = '.1s';
+                    img.style.animationTimingFunction = 'ease-in-out';
+                    img.style.animationDirection = 'reverse';
+                }, 180)
+                
+            }
+        }
+    </script>
+</html>
