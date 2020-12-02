@@ -1,6 +1,6 @@
-azul claro = 2753be
-azul escuro = 332d53
-vermelhor escuro = 8f1721
-vermelhor claro = e83435
-amarelo = fbec2d
-final degrade = 783d3f
+azul claro = #2753be
+azul escuro = #332d53
+vermelhor escuro = #8f1721
+vermelhor claro = #e83435
+amarelor = #fbec2d
+final degrade = #783d3f
