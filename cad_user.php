@@ -215,7 +215,58 @@
                             {
                                 echo "<script type=\"text/javascript\" language=\"javascript\">";
    					            echo "alert(\"$mensagem\");";
-   					            echo "</script>";
+                                echo "</script>";
+                                
+                                ?>
+
+                                    <div class="princ">
+                                        <img src="logo.png" class="logo">
+
+                                        <form class="form" action="?op=1" method="POST">
+                                            <div class="input">
+                                                <label>Nome</label>
+                                                <?php
+                                                    echo "<input type='text' class='nome' value='$nome' name='nome' maxlength='64' placeholder='Digite seu Nome'>"
+                                                ?>
+                                            </div>
+
+                                            <div class="input">
+                                                <label>Email</label>
+                                                <?php
+                                                    echo "<input type='email' class='email' value='$email' name='email' maxlength='64' placeholder='Digite seu Email:'>"
+                                                ?>
+                                            </div>
+
+                                            <div class="input">
+                                                <label>Data de Nascimento</label>
+                                                <?php
+                                                    echo "<input type='date' value='$data_nascimento' class='data' name='data_nascimento'>"
+                                                ?>
+                                            </div>
+
+                                            <div class="input">
+                                                <label>Senha</label>
+                                                <?php
+                                                    echo "<input type='password' class='senha' value='$senha' name='senha' maxlength='16' placeholder='Crie uma senha:'>"
+                                                ?>
+                                            </div>
+
+                                            <div class="input">
+                                                <label>Confirme sua Senha</label>
+                                                <?php
+                                                    echo "<input type='password' class='confirm' value='$confirma_senha' name='confirma_senha' maxlength='16'placeholder='Crie uma senha:'>"
+                                                ?>
+                                            </div>
+
+                                            <div class="botoes">
+                                                <input type="submit" value="Confirme" class="button">
+                                                <a href="index.php" class="button dois">Voltar</a>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                <?php
+
                             }
                             else
                             {
