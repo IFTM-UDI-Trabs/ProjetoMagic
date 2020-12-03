@@ -23,7 +23,7 @@ body, html{
 }
 
 .menu ul{
-    width: 60vw;
+    width: 70vw;
     display: flex;
     justify-content: space-between;
     margin: 0;
@@ -43,36 +43,49 @@ body, html{
     display: inline-block;
     height: 100%;
     padding: 6vh 0;
-    width: calc(60vw/5);
+    width: calc(70vw/6);
     color: #8f1721;
-    font-size: 1.7em;
+    font-size: 20px;
     font-weight: bold;
     box-sizing: border-box;
     text-align: center;
     transition: all .3s ease-in-out;
 }
 
+.menu ul li .rpg{
+    padding: 4vh 0;
+}
+
 .menu ul li a:hover{
-    font-size: 2.2em;
+    font-size: 25px;
     padding: 5.7vh 0;
+}
+
+.menu ul li .rpg:hover{
+    padding: 3.7vh 0;
 }
 
 .banner{
     padding-top: 8vw;
     display: flex;
-    /* background-color: #676479; */
+    /* background-color: white; */
     background-image: linear-gradient(to top, #2753be, #332d53);
+}
+
+.img{
+    width: 40vw;
 }
 
 
 .banner .texto{
     padding: 8vh 5vw 0;
+    max-height: 50vh;
 }
 
 .banner .texto p{
     text-align: justify;
     color: white;
-    font-size: 1.5em;
+    font-size: 17px;
     letter-spacing: 1.4px;
     font-weight: bold;
 }
@@ -82,8 +95,21 @@ body, html{
     text-align: center;
     color: #8f1721;
     text-shadow:white 2px -2px, white -2px 2px, white 2px 2px, white -2px -2px;
-    font-size: 3.5em;
+    font-size: 36px;
     letter-spacing: 2px;
+}
+
+.banner .texto .botao{
+    display: inline-block;
+    color: #8f1721;
+    background-color: white;
+    padding: 1vh 2vw 1.5vh;
+    font-weight: bolder;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-left: 20vw;
+    letter-spacing: 1px;
 }
 
 .azul{

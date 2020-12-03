@@ -13,21 +13,21 @@
         <div class="princ">
             <img src="logo.png" class="logo">
 
-            <form class="form">
+            <form class="form" action="cad.php">
                 <label>Nome:</label>
-                <input type="text" maxlength="64" placeholder="Digite seu Nome">
+                <input type="text" class="nome" maxlength="64" placeholder="Digite seu Nome">
                     
                 <label>Email:</label>
-                <input type="email" maxlength="64" placeholder="Digite seu Email:">
+                <input type="email" class="email" maxlength="64" placeholder="Digite seu Email:">
 
                 <label>Data de Nascimento:</label>
-                <input type="date">
+                <input type="date" class="data">
 
                 <label>Senha:</label>
-                <input type="password" maxlength="16" placeholder="Crie uma senha:">
+                <input type="password" class="senha" maxlength="16" placeholder="Crie uma senha:">
 
                 <label>Confirme sua Senha:</label>
-                <input type="password" maxlength="16" placeholder="Crie uma senha:">
+                <input type="password" class="confirm" maxlength="16" placeholder="Crie uma senha:">
 
                 <input type="submit" value="Confirme" class="button">
                 <a href="index.php" class="button">Voltar</a>

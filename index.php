@@ -15,14 +15,15 @@
             <a href="#"><img src="logo.png" class="logo"></a>
             <ul>
                 <li class="item"><a href="#banner">Home</a></li>
-                <li class="item"><a href="#rpg">O que é RPG?</a></li>
+                <li class="item"><a href="#rpg" class="rpg">O que é<br>RPG?</a></li>
                 <li class="item"><a href="">Objetivo</a></li>
                 <li class="item"><a href="">Criadores</a></li>
-                <li class="item"><a href="cad_user.php">Login</a></li>
+                <li class="item"><a href="cad_user.php">Cadastrar</a></li>
+                <li class="item"><a href="">Login</a></li>
             </ul>
         </header>
         <div id="banner" class="banner">
-            <img src="logo.png">
+            <img src="logo.png" class="img">
             <div class="texto">
                 <h1>Projeto Magic</h1>
                 <p class="txt">Nós, Douglas Stuhler Pinheiro e Murilo Silva Reis, desenvolveremos um site que funcionará praticamente como uma rede social, porém com assuntos específicos voltados para RPG, do inglês: “Role Play Games” ou Jogo de Interpretação. O RPG é um estilo de jogo de mesa muito conhecido atualmente, e possui vários estilos e regras diferentes, para o site utilizaremos o conjunto de regras conhecido como “D&D” ou “Dungeons & Dragons”.</p>
