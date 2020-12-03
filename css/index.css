@@ -67,7 +67,7 @@ body, html{
 .banner{
     padding-top: 8vw;
     display: flex;
-    background-image: url("fundocad.png");
+    background-image: url("../img/fundocad.png");
     /* background-image: linear-gradient(to top, #2753be, #332d53); */
 }
 

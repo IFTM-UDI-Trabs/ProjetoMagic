@@ -7,12 +7,12 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" type="text/css" href="index.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
         <header class="menu">
-            <a href="#"><img src="logo.png" class="logo"></a>
+            <a href="#"><img src="img/logo.png" class="logo"></a>
             <ul>
                 <li class="item"><a href="#banner">Home</a></li>
                 <li class="item"><a href="#rpg" class="rpg">O que é<br>RPG?</a></li>
@@ -23,7 +23,7 @@
             </ul>
         </header>
         <div id="banner" class="banner">
-            <img src="logo.png" class="img">
+            <img src="img/logo.png" class="img">
             <div class="texto">
                 <h1>Projeto Magic</h1>
                 <p class="txt">Nós, Douglas Stuhler Pinheiro e Murilo Silva Reis, desenvolveremos um site que funcionará praticamente como uma rede social, porém com assuntos específicos voltados para RPG, do inglês: “Role Play Games” ou Jogo de Interpretação. O RPG é um estilo de jogo de mesa muito conhecido atualmente, e possui vários estilos e regras diferentes, para o site utilizaremos o conjunto de regras conhecido como “D&D” ou “Dungeons & Dragons”.</p>
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div id="rpg" class="azul">
-            <img src="logo.png">
+            <img src="img/logo.png">
             <div class="texto">
                 <h1>Projeto Magic</h1>
                 <p class="txt">Nós, Douglas Stuhler Pinheiro e Murilo Silva Reis, desenvolveremos um site que funcionará praticamente como uma rede social, porém com assuntos específicos voltados para RPG, do inglês: “Role Play Games” ou Jogo de Interpretação. O RPG é um estilo de jogo de mesa muito conhecido atualmente, e possui vários estilos e regras diferentes, para o site utilizaremos o conjunto de regras conhecido como “D&D” ou “Dungeons & Dragons”.</p>
