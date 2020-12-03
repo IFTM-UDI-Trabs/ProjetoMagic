@@ -18,7 +18,7 @@
                 <li class="item"><a href="#rpg">O que é RPG?</a></li>
                 <li class="item"><a href="">Objetivo</a></li>
                 <li class="item"><a href="">Criadores</a></li>
-                <li class="item"><a href="">Login</a></li>
+                <li class="item"><a href="cad_user.php">Login</a></li>
             </ul>
         </header>
         <div id="banner" class="banner">
