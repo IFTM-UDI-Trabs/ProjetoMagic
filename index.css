@@ -64,6 +64,11 @@ body, html{
     background-image: linear-gradient(to top, #2753be, #332d53);
 }
 
+
+.banner .texto{
+    padding: 8vh 5vw 0;
+}
+
 .banner .texto p{
     text-align: justify;
     color: white;
@@ -72,9 +77,6 @@ body, html{
     font-weight: bold;
 }
 
-.banner .texto{
-    padding: 8vh 5vw 0;
-}
 
 .banner .texto h1{
     text-align: center;

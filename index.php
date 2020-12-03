@@ -51,18 +51,6 @@
                     
                     var hash = this.hash;
 
-                    var altura = parseFloat(window.innerWidth);
-                    var vh = altura / 100;
-
-                    var menu = (19*vh);
-                    console.log(menu)
-
-                    var medida = $(hash).offset().top;
-                    console.log(medida);
-
-                    medida += menu;
-                    console.log(medida);
-
                     if (hash != "banner"){
                         $('html, body').animate({
                             scrollTop: $(hash).offset().top
