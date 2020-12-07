@@ -32,7 +32,7 @@
         ?>
 
         <div class="princ">
-            <img src="logo.png" class="logo">
+            <img src="img/logo.png" class="logo">
 
             <form class="form" action="?op=1" method="POST">
 

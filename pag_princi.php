@@ -1,4 +1,6 @@
 <?php
+    include ("funcoes.php");
+
     session_start();
     $nome = $_SESSION['nome'];
 
@@ -57,8 +59,97 @@
             
 
             <?php
+        } else if ($op == 1){
+            ?>
+
+            
+
+            <?php
+        } else if ($op == 2){
+            ?>
+            
+            <div class="pag">
+                <button class="button" onclick="">Adicionar Magia +</button>
+                <div class="magias">
+            <?php
+
+            $conetca = conecta();
+
+            $texto_sql = @ "SELECT * FROM magia WHERE user='$nome'";
+            $resultado = @ mysqli_query($conetca, $texto_sql);
+            $selecao = mysqli_num_rows($resultado);
+
+            $q = 0;
+            $s = 0;
+
+            while ($linha = mysqli_fetch_array($resultado)){
+                    if ($q == 0){
+                        echo "<div class='linha'>";
+                    }
+                    $nome_magia = $linha['nome'];
+                    $escola_magia = $linha['escola'];
+                    $nivel_magia = $linha['nivel'];
+                    $conjurador_magia = $linha['conjurador'];
+                    $conjurador_magia = substr_replace($conjurador_magia, ' ', strpos($conjurador_magia, ','),1);
+                    $tempo_magia = $linha['tempoconj'];
+                    $alcance_magia = $linha['alcance'];
+                    $componentes_magia = $linha['componentes'];
+                    $duracao_magia = $linha['duracao'];
+                    $descricao_magia = $linha['descricao'];
+                    $descricaolvl_magia = $linha['descricaolvl'];
+                    $like_magia = $linha['like'];
+                    // echo strstr($conjurador_magia, ',', false);
+                    ?>
+                    <div class="box_total">
+                        <div class="box_inicio">
+                            <div class="title">
+                                <?php
+                                echo "<p>$nome_magia</p>";
+                                ?>
+                            </div>
+                            <div class="level">
+                                <?php
+                                echo "<p>$nivel_magia º nível de evocação</p>"
+                                ?>
+                            </div>
+                        </div>
+                        <div class="info_basica">
+                            <?php
+                            echo "<p><span class='sub'>Conjugadores:</span> <span class='conj'>$conjurador_magia</span></p>";
+                            echo "<p><span class='sub'>Alcance:</span> $alcance_magia pés</p>";
+                            echo "<p><span class='sub'>Componentes:</span> $componentes_magia</p>";
+                            echo "<p><span class='sub'>Duração:</span> $duracao_magia</p>";
+                            ?>
+                        </div>
+                        <div class="desc">
+                            <?php
+                            echo "<p>$descricao_magia</p>";
+                            echo "<p><span class='sub'>Níveis Superiores:</span> $descricaolvl_magia</p>";
+                            ?>
+                        </div>
+                        <div class="like">
+                            <img src="img/pocao_vazio.png" id="img" onclick="animacao()">
+                        </div>
+                    </div>
+            <?php
+            $q += 1;
+            $s += 1;
+            if ($q == 2){
+                echo "</div>\n<div class='linha'>";
+                $q = 0;
+            } else {
+                if ($s <= $selecao){} else {
+                    echo "</div>";
+                }
+            }
+            }
+            ?>
+                </div>
+            </div> <!-- Fechando DIV pag  -->
+            <?php
         }
     ?>
 
     </body>
+    <script src="js/function.js"></script>
 </html>
