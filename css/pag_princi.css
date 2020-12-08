@@ -14,6 +14,7 @@ body, html{
     box-sizing: border-box;
     padding: 5vh 0;
     border-right: 2px solid #2753be;
+    margin: 0;
 }
 
 .pag{
@@ -102,12 +103,14 @@ body, html{
     font-size: 1.5vw;
     font-weight: bold;
     display: inline-block;
-    margin: 6vh 2.5vw;
+    margin: 6vh 2.5vw 0;
+    text-decoration: none;
 }
 
 .magias{
     display: flex;
     flex-wrap: wrap;
+    margin-top: 6vh;
 }
 
 .linha{
@@ -255,4 +258,99 @@ body, html{
     padding-top: 10px;
     padding-bottom: 10px;
     height: 72px;
+}
+
+.fundo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    width: 100vw;
+    background-image: url(../img/fundocad.png);
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.princ{
+    width: 50vw;
+    margin: 10vh 20vw;
+    padding: 5vh 5vw;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.logo{
+    width: 35vw;
+    margin: 0 7.5vw;
+    display: inline-block;
+}
+
+
+.input{
+    margin: 3vh auto;
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+}
+
+.input label{
+    display: inline-block;
+    font-size: 1.3vw;
+    margin: 0;
+    background-color: #2753be;
+    box-sizing: border-box;
+    padding-top: 1.5vh;
+    text-align: center;
+    height: 7vh;
+    width: 15vw;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.input input{
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border: 1px solid #2753be;
+    height: 7vh;
+    width: 20vw;
+    box-sizing: border-box;
+    padding: .5vh 1vw;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 1.2vw;
+}
+
+.botoes{
+    margin: 6vh auto;
+    width: 30vw;
+    padding-top: 1vh 0 2vh;
+    display: flex;
+    justify-content: first baseline;
+}
+
+.button_form{
+    border: none;
+    background-color: #2753be;
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.3vw;
+    margin: 0 1.5vw;
+    height: 8vh;
+    width: 12vw;
+    box-sizing: border-box;
+    text-align: center;
+    padding-bottom: .4vh;
+    border-radius: 7px;
+}
+
+.dois{
+    padding-top: 1.6vh;
+    background-color: #e83435;
 }

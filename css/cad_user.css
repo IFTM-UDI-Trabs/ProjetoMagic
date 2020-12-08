@@ -59,6 +59,20 @@ body, html{
     font-size: 1.2vw;
 }
 
+.input select{
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border: 1px solid #2753be;
+    height: 7vh;
+    width: 20vw;
+    box-sizing: border-box;
+    padding: .5vh 1vw;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 1.2vw;
+}
+
 .botoes{
     margin: 6vh auto;
     width: 30vw;
@@ -87,4 +101,96 @@ body, html{
 .dois{
     padding-top: 1.6vh;
     background-color: #e83435;
+}
+
+.checkbox label{
+    display: block;
+    background-color: white;
+    color: #2753be;
+    width: 90%;
+    margin: auto;
+    padding: 1.5vh 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.4vw;
+}
+
+.checkbox .check{
+    display: inline-block;
+    width: auto;
+}
+
+.checkbox{
+    margin: 3vh auto;
+    width: 35vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid #2753be;
+    border-radius: 15px;
+    padding-bottom: 1.5vh;
+}
+
+.checkbox div{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 2.5vw;
+}
+
+.checkbox div input{
+    width: 1.3vw;
+    height: 1.3vw;
+    margin-right: .8vw;
+}
+
+.checkbox .flex{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 2.5vw;
+}
+
+.input .tdc{
+    font-size: 1.1vw;
+}
+
+.textarea{
+    margin: 3vh auto;
+    width: 35vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 15px;
+    padding-bottom: 1.5vh;
+}
+
+.textarea label{
+    display: block;
+    background-color: #2753be;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    color: white;
+    width: 100%;
+    margin: auto;
+    padding: 1.5vh 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.4vw;
+}
+
+.textarea textarea{
+    padding: 0;
+    margin: 0;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border: 1px solid #2753be;
+    height: 15vh;
+    width: 35vw;
+    box-sizing: border-box;
+    padding: .5vh 1vw;
+    font-size: 1.2vw;
+    font-family: 'Open Sans', sans-serif;
+    resize: none;
+    letter-spacing: .08vw;
 }
