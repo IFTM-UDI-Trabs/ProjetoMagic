@@ -196,7 +196,6 @@
                 $contador = substr_count($nome_fav_result, ";");
                 $eba = $contador;
                 $eba -= 1;
-                mensagem($eba);
                 $letra = strlen($nome_fav_result);
                 $x = 1;
 
@@ -207,20 +206,16 @@
 
                 if (stripos($nome_fav_result, ";") == false){
                     $nomes[0] = $nome_fav_result;
-                    mensagem($nomes[0]);
                 } else {
                     while($contador >= $x){
                         if ($eba == 0){
                             $pontoVirgula = (strripos($nome_fav_result, ":") + 1);
                             $nomes[$x] = substr($nome_fav_result, $pontoVirgula);
-                            mensagem($nomes["$x"]);
                         } else {
                             $pontoVirgula = stripos($nome_fav_result, ";");
                             $nome_fav_result = substr_replace($nome_fav_result, ":", $pontoVirgula, 1);
                             $nomes[$x] = substr($nome_fav_result, 0, $pontoVirgula);
-                            mensagem($nomes[$x]);
                             $eba = substr_count($nome_fav_result, ";");
-                            mensagem($eba);
                         }
                         
                         $x += 1;
@@ -255,7 +250,6 @@
 
                 while ($x <= $y){
                     $nome_magia = $nomes[$x];
-                    mensagem($nome_magia);
                     $conetca = conecta();
                     $texto_sql = @ "SELECT * FROM magia WHERE nome='$nome_magia'";
                     $resultado = @ mysqli_query($conetca, $texto_sql);

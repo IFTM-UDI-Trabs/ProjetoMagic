@@ -144,6 +144,8 @@ body, html{
 .imgPocao{
     width: 4vw;
     height: 5.76vw;
+    position: absolute;
+    bottom: 0;
 }
 
 .imgPocao:clicked{
@@ -212,6 +214,8 @@ body, html{
     background-color: white;
 
     position: relative;
+    top: 0;
+    left: 0;
 }
 
 .box_inicio{
@@ -247,6 +251,8 @@ body, html{
 
 .title p{
     font-weight: bold;
+    display: inline-block;
+    min-width: 10vw;
 }
 
 .level p{
@@ -270,7 +276,9 @@ body, html{
 }
 
 .desc{
+    min-height: 8vw;
     padding: 0 .8vw;
+    margin-bottom: 6vw;
     /* border-bottom: 2px solid rgb(153, 153, 153); */
 }
 
@@ -281,10 +289,11 @@ body, html{
 
 .like{
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    height: 72px;
-    position: relative;
+    padding-top: 2vw;
+    margin-top: 7vw;
+    margin-bottom: 0;
+    height: 5.76vw;
+    position: absolute;
     bottom: 0;
     left: 0;
 }
@@ -362,34 +371,19 @@ body, html{
     justify-content: first baseline;
 }
 
-.button_form{
-    border: none;
-    background-color: #2753be;
-    color: white;
-    display: inline-block;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.3vw;
-    margin: 0 1.5vw;
-    height: 8vh;
-    width: 12vw;
-    box-sizing: border-box;
-    text-align: center;
-    padding-bottom: .4vh;
-    border-radius: 7px;
-}
-
 .dois{
     padding-top: 1.6vh;
     background-color: #e83435;
 }
 
 .like button{
+    margin: 0;
+    padding: 0;
     background-color: transparent;
     border: none;
     position: absolute;
     left: 14vw;
-    bottom: .5vw;
+    bottom: 0;
 }
 
 .like button:focus{
