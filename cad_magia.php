@@ -633,9 +633,11 @@
                             $quantidade_registros = mysqli_num_rows($resultado);
 
                             if ($quantidade_registros != 0){
-                                while ($linha = mysqli_fetch_array($resultado)){
-                                    $magia = $linha['magias'];
-                                }
+                                mensagem("Dados enviados com sucesso!");
+
+                                $_SESSION['nome'] = $nome;
+
+                                trocaPagina('pag_princi.php');
                             } else {
                                 mensagem("Ocorreu um erro ao enviar os dados, tente novamente.");
                                 ?>
@@ -974,20 +976,6 @@
                                         </form>
                                     </div>
                                 <?php
-                            }
-
-                            $magia .= ", $nome_magia";
-
-                            $texto_sql = "UPDATE cad_user SET magias='$magia' WHERE nome='$nome'";
-                            $resultado = mysqli_query($conn,$texto_sql);
-
-                            if ($resultado > 0){
-                                mensagem("Dados enviados com sucesso!");
-
-                                $_SESSION['nome'] = $nome;
-
-                                trocaPagina('pag_princi.php');
-                                    
                             }
                         }
                         else{
