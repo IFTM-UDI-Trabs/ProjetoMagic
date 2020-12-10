@@ -118,12 +118,12 @@ body, html{
     width: 100%;
 }
 
-#img{
+.imgPocao{
     width: 50px;
     height: 72px;
 }
 
-#img:clicked{
+.imgPocao:clicked{
     animation: like 2s ease-in-out;
     animation: like 2s ease-in-out .5s reverse;
 }

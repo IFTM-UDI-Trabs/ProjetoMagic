@@ -173,9 +173,16 @@ body, html{
     padding: 0 1vw;
 }
 
+.checkbox .input .tconjuracao{
+    text-align: center;
+}
+
+.checkbox .flex_temp .check{
+    margin: 0 .5vw 0 .5vw;
+}
+
 .checkbox .flex_temp .tempoconj{
     display: inline-block;
-    width: 20%;
 }
 
 .input .tdc{

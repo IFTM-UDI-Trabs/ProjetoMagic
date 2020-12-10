@@ -1,5 +1,5 @@
-function animacao(){
-    var img = document.getElementById('img');
+function animacao(nera){
+    var img = document.getElementById(nera);
     var src = img.getAttribute('src');
 
     if (src == "img/pocao_vazio.png"){

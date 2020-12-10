@@ -74,6 +74,7 @@
                     if ($q == 0){
                         echo "<div class='linha'>";
                     }
+                    $id = $linha['id'];
                     $nome_magia = $linha['nome'];
                     $escola_magia = $linha['escola'];
                     $nivel_magia = $linha['nivel'];
@@ -116,7 +117,9 @@
                             ?>
                         </div>
                         <div class="like">
-                            <img src="img/pocao_vazio.png" id="img" onclick="animacao()">
+                            <?php
+                            echo "<img src='img/pocao_vazio.png' class='imgPocao' id='$id' onclick='animacao($id)'>"
+                            ?>
                         </div>
                     </div>
             <?php
@@ -126,7 +129,7 @@
                 echo "</div>\n<div class='linha'>";
                 $q = 0;
             } else {
-                if ($s <= $selecao){} else {
+                if ($s < $selecao){} else {
                     echo "</div>";
                 }
             }
@@ -163,6 +166,7 @@
                     if ($q == 0){
                         echo "<div class='linha'>";
                     }
+                    $id = $linha['id'];
                     $nome_magia = $linha['nome'];
                     $escola_magia = $linha['escola'];
                     $nivel_magia = $linha['nivel'];
@@ -205,7 +209,9 @@
                             ?>
                         </div>
                         <div class="like">
-                            <img src="img/pocao_vazio.png" id="img" onclick="animacao()">
+                            <?php
+                            echo "<img src='img/pocao_vazio.png' class='imgPocao' id='$id' onclick='animacao($id)'>"
+                            ?>
                         </div>
                     </div>
             <?php
@@ -215,7 +221,7 @@
                 echo "</div>\n<div class='linha'>";
                 $q = 0;
             } else {
-                if ($s <= $selecao){} else {
+                if ($s = $selecao){} else {
                     echo "</div>";
                 }
             }
