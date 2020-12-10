@@ -46,10 +46,34 @@
             <div class="opcoes">
                 <ul class="lista">
                     <li class="titulo">MENU</li>
-                    <li><a href="?op=0">Magias Universais</a></li>
-                    <li><a href="?op=1">Magias Preferidas</a></li>
-                    <li><a href="?op=2">Minhas Magias</a></li>
-                    <li><a onclick="sair()">Sair</a></li>
+                    <?php
+                        if ($op == 0){
+                            echo "<li class='selec'><a href='?op=0'>Magias Universais</a></li>";
+                    ?>
+                            <li><a href="?op=1">Magias Preferidas</a></li>
+                            <li><a href="?op=2">Minhas Magias</a></li>
+                            <li><a onclick="sair()">Sair</a></li>
+                    <?php
+                        } else if ($op == 1){
+                    ?>
+                            <li><a href="?op=0">Magias Universais</a></li>
+                    <?php
+                            echo "<li class='selec'><a href='?op=1'>Magias Preferidas</a></li>";
+                    ?>
+                            <li><a href="?op=2">Minhas Magias</a></li>
+                            <li><a onclick="sair()">Sair</a></li>
+                    <?php
+                        } else if ($op == 2){
+                    ?>
+                            <li><a href="?op=0">Magias Universais</a></li>
+                            <li><a href="?op=1">Magias Preferidas</a></li>
+                    <?php
+                            echo "<li class='selec'><a href='?op=2'>Minhas Magias</a></li>";
+                    ?>
+                            <li><a onclick="sair()">Sair</a></li>
+                    <?php
+                        }
+                    ?>
                 </ul>
             </div>
         </div>
@@ -63,7 +87,7 @@
 
             $conetca = conecta();
 
-            $texto_sql = @ "SELECT * FROM magia WHERE user='$nome'";
+            $texto_sql = @ "SELECT * FROM magia";
             $resultado = @ mysqli_query($conetca, $texto_sql);
             $selecao = mysqli_num_rows($resultado);
 
@@ -87,6 +111,14 @@
                     $descricaolvl_magia = $linha['descricaolvl'];
                     $like_magia = $linha['curtidas'];
                     // echo strstr($conjurador_magia, ',', false);
+
+                    $texto_sql = @ "SELECT * FROM cad_user WHERE nome='$nome'";
+                    $result = @ mysqli_query($conetca, $texto_sql);
+
+                    while ($linha = mysqli_fetch_array($result)){
+                        $magias = $linha['magias'];
+                    }
+
                     ?>
                     <div class="box_total">
                         <div class="box_inicio">
@@ -118,8 +150,15 @@
                         </div>
                         <div class="like">
                             <?php
-                            echo "<img src='img/pocao_vazio.png' class='imgPocao' id='$id' onclick='animacao($id)'>"
+                            if (stripos($magias, $nome_magia) == false){
+                                echo "<form action='?op=3' id='form$id' method='POST'>";
+                                echo "<button type='submit' name='id' value='$id'><img src='img/pocao_vazio.png' class='imgPocao'id='$id'onclick='animacao($id)'></button>";
+                            } else {
+                                echo "<form action='?op=3' id='form$id' method='POST'>";
+                                echo "<button type='submit' name='id' value='$id'><img src='img/pocao_like.png' class='imgPocao'id='$id'onclick='animacao($id)'></button>";
+                            }
                             ?>
+                            </form>
                         </div>
                     </div>
             <?php
@@ -142,7 +181,8 @@
         } else if ($op == 1){
             ?>
 
-            
+                <a class="button" href="cad_magia.php">Adicionar Magia +</a>
+                <div class="magias">
 
             <?php
         } else if ($op == 2){
@@ -161,11 +201,11 @@
 
             $q = 0;
             $s = 0;
-
+            
+            if ($q == 0){
+                echo "<div class='linha'>";
+            }
             while ($linha = mysqli_fetch_array($resultado)){
-                    if ($q == 0){
-                        echo "<div class='linha'>";
-                    }
                     $id = $linha['id'];
                     $nome_magia = $linha['nome'];
                     $escola_magia = $linha['escola'];
@@ -179,6 +219,14 @@
                     $descricaolvl_magia = $linha['descricaolvl'];
                     $like_magia = $linha['curtidas'];
                     // echo strstr($conjurador_magia, ',', false);
+
+                    $texto_sql = @ "SELECT * FROM cad_user WHERE nome='$nome'";
+                    $result = @ mysqli_query($conetca, $texto_sql);
+
+                    while ($linha = mysqli_fetch_array($result)){
+                        $magias = $linha['magias'];
+                    }
+
                     ?>
                     <div class="box_total">
                         <div class="box_inicio">
@@ -196,8 +244,8 @@
                         <div class="info_basica">
                             <?php
                             echo "<p><span class='sub'>Conjugadores:</span> <span class='conj'>$conjurador_magia</span></p>";
-                            echo "<p><span class='sub'>Alcance:</span> $alcance_magia pés</p>";
-                            echo "<p><span class='sub'>Tempo de Conjuração:</span> $tempo_magia Ação</p>";
+                            echo "<p><span class='sub'>Alcance:</span> $alcance_magia</p>";
+                            echo "<p><span class='sub'>Tempo de Conjuração:</span> $tempo_magia</p>";
                             echo "<p><span class='sub'>Componentes:</span> $componentes_magia</p>";
                             echo "<p><span class='sub'>Duração:</span> $duracao_magia</p>";
                             ?>
@@ -210,8 +258,15 @@
                         </div>
                         <div class="like">
                             <?php
-                            echo "<img src='img/pocao_vazio.png' class='imgPocao' id='$id' onclick='animacao($id)'>"
+                            if (stripos($magias, $nome_magia) == false){
+                                echo "<form action='?op=3' id='form$id' method='POST'>";
+                                echo "<button type='submit' name='id' value='$id'><img src='img/pocao_vazio.png' class='imgPocao'id='$id'onclick='animacao($id)'></button>";
+                            } else {
+                                echo "<form action='?op=3' id='form$id' method='POST'>";
+                                echo "<button type='submit' name='id' value='$id'><img src='img/pocao_like.png' class='imgPocao'id='$id'onclick='animacao($id)'></button>";
+                            }
                             ?>
+                            </form>
                         </div>
                     </div>
             <?php
@@ -221,7 +276,7 @@
                 echo "</div>\n<div class='linha'>";
                 $q = 0;
             } else {
-                if ($s = $selecao){} else {
+                if ($s <= $selecao){} else {
                     echo "</div>";
                 }
             }
@@ -229,8 +284,46 @@
             ?>
                 </div>
             </div> <!-- Fechando DIV pag  -->
+
             <?php
-        } 
+        } else if ($op == 3){
+            $id = $_REQUEST['id'];
+            $nome = $_SESSION['nome'];
+            
+            $texto_sql = "SELECT * FROM cad_user WHERE nome='$nome'";
+            $con = conecta();
+            $result = mysqli_query($con,$texto_sql);
+
+            while($linha = mysqli_fetch_array($result)){
+                $magias = $linha['magias'];
+            }
+
+            $texto_sql = "SELECT * FROM magia WHERE id='$id'";
+            $con = conecta();
+            $result = mysqli_query($con,$texto_sql);
+
+            while($linha = mysqli_fetch_array($result)){
+                $magia_atual = $linha['nome'];
+            }
+
+            if (stripos($magias, $magia_atual) == false){
+                $texto_sql = "UPDATE cad_user SET magias='$magias $magia_atual' WHERE nome='$nome'";
+                $con = conecta();
+                $result = mysqli_query($con,$texto_sql);
+
+                trocaPagina("?op=0");
+            } else {
+                $magias = str_replace(" $magia_atual", "", $magias);
+
+                $texto_sql = "UPDATE cad_user SET magias='$magias' WHERE nome='$nome'";
+                $con = conecta();
+                $result = mysqli_query($con,$texto_sql);
+
+                trocaPagina("?op=0");
+            }
+
+            
+        }
     ?>
 
     </body>
