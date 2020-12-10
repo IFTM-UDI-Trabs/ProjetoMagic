@@ -52,7 +52,7 @@
                     ?>
                             <li><a href="?op=1">Magias Preferidas</a></li>
                             <li><a href="?op=2">Minhas Magias</a></li>
-                            <li><a onclick="sair()">Sair</a></li>
+                            <li><a href="index.php">Sair</a></li>
                     <?php
                         } else if ($op == 1){
                     ?>
@@ -61,7 +61,7 @@
                             echo "<li class='selec'><a href='?op=1'>Magias Preferidas</a></li>";
                     ?>
                             <li><a href="?op=2">Minhas Magias</a></li>
-                            <li><a onclick="sair()">Sair</a></li>
+                            <li><a href="index.php">Sair</a></li>
                     <?php
                         } else if ($op == 2){
                     ?>
@@ -70,7 +70,7 @@
                     <?php
                             echo "<li class='selec'><a href='?op=2'>Minhas Magias</a></li>";
                     ?>
-                            <li><a onclick="sair()">Sair</a></li>
+                            <li><a href="index.php">Sair</a></li>
                     <?php
                         }
                     ?>
