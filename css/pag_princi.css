@@ -123,6 +123,24 @@ body, html{
     width: 100%;
 }
 
+.linha_full .box_total{
+    min-width: 64vw;
+    max-width: 64vw;
+
+    margin: 0 3vw 5vw 3vw;
+    padding: 0px;
+    display: inline-block;
+
+    border: 2px solid #332d53;
+    border-radius: 15px;
+
+    box-sizing: border-box;
+
+    background-color: white;
+
+    position: relative;
+}
+
 .imgPocao{
     width: 4vw;
     height: 5.76vw;
@@ -178,7 +196,7 @@ body, html{
     }
 }
 
-.box_total{
+.linha .box_total{
     min-width: 45%;
     max-width: 45%;
 
@@ -378,4 +396,9 @@ body, html{
     outline: thin dotted;
     outline: 0px auto -webkit-focus-ring-color;
     outline-offset: 0px;
+}
+
+.linha_full .like button{
+    left: 30vw;
+    bottom: 0vw;
 }
