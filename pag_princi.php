@@ -69,11 +69,11 @@
 
             $q = 0;
             $s = 0;
-
+            
+            if ($q == 0){
+                echo "<div class='linha'>";
+            }
             while ($linha = mysqli_fetch_array($resultado)){
-                    if ($q == 0){
-                        echo "<div class='linha'>";
-                    }
                     $id = $linha['id'];
                     $nome_magia = $linha['nome'];
                     $escola_magia = $linha['escola'];
