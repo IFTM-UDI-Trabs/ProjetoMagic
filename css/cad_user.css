@@ -143,12 +143,39 @@ body, html{
     margin-right: .8vw;
 }
 
+.checkbox .input input{
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border: 1px solid #2753be;
+    height: 7vh;
+    width: 20vw;
+    box-sizing: border-box;
+    padding: .5vh 1vw;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 1.2vw;
+}
+
 .checkbox .flex{
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
     width: 100%;
     padding: 0 2.5vw;
+}
+
+.checkbox .flex_temp{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 1vw;
+}
+
+.checkbox .flex_temp .tempoconj{
+    display: inline-block;
+    width: 20%;
 }
 
 .input .tdc{

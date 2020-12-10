@@ -78,14 +78,13 @@
                     $escola_magia = $linha['escola'];
                     $nivel_magia = $linha['nivel'];
                     $conjurador_magia = $linha['conjurador'];
-                    $conjurador_magia = substr_replace($conjurador_magia, ' ', strpos($conjurador_magia, ','),1);
                     $tempo_magia = $linha['tempoconj'];
                     $alcance_magia = $linha['alcance'];
                     $componentes_magia = $linha['componentes'];
                     $duracao_magia = $linha['duracao'];
                     $descricao_magia = $linha['descricao'];
                     $descricaolvl_magia = $linha['descricaolvl'];
-                    $like_magia = $linha['like'];
+                    $like_magia = $linha['curtidas'];
                     // echo strstr($conjurador_magia, ',', false);
                     ?>
                     <div class="box_total">
@@ -104,8 +103,8 @@
                         <div class="info_basica">
                             <?php
                             echo "<p><span class='sub'>Conjugadores:</span> <span class='conj'>$conjurador_magia</span></p>";
-                            echo "<p><span class='sub'>Alcance:</span> $alcance_magia pés</p>";
-                            echo "<p><span class='sub'>Tempo de Conjuração:</span> $tempo_magia Ação</p>";
+                            echo "<p><span class='sub'>Alcance:</span> $alcance_magia</p>";
+                            echo "<p><span class='sub'>Tempo de Conjuração:</span> $tempo_magia</p>";
                             echo "<p><span class='sub'>Componentes:</span> $componentes_magia</p>";
                             echo "<p><span class='sub'>Duração:</span> $duracao_magia</p>";
                             ?>
@@ -168,14 +167,13 @@
                     $escola_magia = $linha['escola'];
                     $nivel_magia = $linha['nivel'];
                     $conjurador_magia = $linha['conjurador'];
-                    $conjurador_magia = substr_replace($conjurador_magia, ' ', strpos($conjurador_magia, ','),1);
                     $tempo_magia = $linha['tempoconj'];
                     $alcance_magia = $linha['alcance'];
                     $componentes_magia = $linha['componentes'];
                     $duracao_magia = $linha['duracao'];
                     $descricao_magia = $linha['descricao'];
                     $descricaolvl_magia = $linha['descricaolvl'];
-                    $like_magia = $linha['like'];
+                    $like_magia = $linha['curtidas'];
                     // echo strstr($conjurador_magia, ',', false);
                     ?>
                     <div class="box_total">
