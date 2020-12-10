@@ -129,7 +129,7 @@
                 echo "</div>\n<div class='linha'>";
                 $q = 0;
             } else {
-                if ($s < $selecao){} else {
+                if ($s <= $selecao){} else {
                     echo "</div>";
                 }
             }
