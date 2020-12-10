@@ -180,9 +180,115 @@
             <?php
         } else if ($op == 1){
             ?>
-
-                <a class="button" href="cad_magia.php">Adicionar Magia +</a>
+            <div class="pag">
                 <div class="magias">
+            <?php
+
+            $conetca = conecta();
+
+            $texto_sql = @ "SELECT * FROM cad_user WHERE nome='$nome'";
+            $nome_fav = @ mysqli_query($conetca, $texto_sql);
+
+            while ($linha = mysqli_fetch_array($nome_fav)){
+                $nome_fav_result = $linha['magias'];
+            }
+
+            mensagem($nome_fav_result);
+
+            if ($nome_fav == "" || $nome_fav == " "){} else {
+                $nome_fav_result = str_replace(";", " ", $nome_fav_result);
+                mensagem($nome_fav_result);
+            }
+
+            $texto_sql = @ "SELECT * FROM magia WHERE nome='$nome_fav_result'";
+            $resultado = @ mysqli_query($conetca, $texto_sql);
+            $selecao = mysqli_num_rows($resultado);
+
+            $q = 0;
+            $s = 0;
+            
+            if ($q == 0){
+                echo "<div class='linha'>";
+            }
+            while ($linha = mysqli_fetch_array($resultado)){
+                    $id = $linha['id'];
+                    $nome_magia = $linha['nome'];
+                    $escola_magia = $linha['escola'];
+                    $nivel_magia = $linha['nivel'];
+                    $conjurador_magia = $linha['conjurador'];
+                    $tempo_magia = $linha['tempoconj'];
+                    $alcance_magia = $linha['alcance'];
+                    $componentes_magia = $linha['componentes'];
+                    $duracao_magia = $linha['duracao'];
+                    $descricao_magia = $linha['descricao'];
+                    $descricaolvl_magia = $linha['descricaolvl'];
+                    $like_magia = $linha['curtidas'];
+                    // echo strstr($conjurador_magia, ',', false);
+
+                    $texto_sql = @ "SELECT * FROM cad_user WHERE nome='$nome'";
+                    $result = @ mysqli_query($conetca, $texto_sql);
+
+                    while ($linha = mysqli_fetch_array($result)){
+                        $magias = $linha['magias'];
+                    }
+
+                    ?>
+                    <div class="box_total">
+                        <div class="box_inicio">
+                            <div class="title">
+                                <?php
+                                echo "<p>$nome_magia</p>";
+                                ?>
+                            </div>
+                            <div class="level">
+                                <?php
+                                echo "<p>$nivel_magia º nível de $escola_magia</p>"
+                                ?>
+                            </div>
+                        </div>
+                        <div class="info_basica">
+                            <?php
+                            echo "<p><span class='sub'>Conjugadores:</span> <span class='conj'>$conjurador_magia</span></p>";
+                            echo "<p><span class='sub'>Alcance:</span> $alcance_magia</p>";
+                            echo "<p><span class='sub'>Tempo de Conjuração:</span> $tempo_magia</p>";
+                            echo "<p><span class='sub'>Componentes:</span> $componentes_magia</p>";
+                            echo "<p><span class='sub'>Duração:</span> $duracao_magia</p>";
+                            ?>
+                        </div>
+                        <div class="desc">
+                            <?php
+                            echo "<p>$descricao_magia</p>";
+                            echo "<p><span class='sub'>Níveis Superiores:</span> $descricaolvl_magia</p>";
+                            ?>
+                        </div>
+                        <div class="like">
+                            <?php
+                            if (stripos($magias, $nome_magia) == false){
+                                echo "<form action='?op=3' id='form$id' method='POST'>";
+                                echo "<button type='submit' name='id' value='$id'><img src='img/pocao_vazio.png' class='imgPocao'id='$id'onclick='animacao($id)'></button>";
+                            } else {
+                                echo "<form action='?op=3' id='form$id' method='POST'>";
+                                echo "<button type='submit' name='id' value='$id'><img src='img/pocao_like.png' class='imgPocao'id='$id'onclick='animacao($id)'></button>";
+                            }
+                            ?>
+                            </form>
+                        </div>
+                    </div>
+            <?php
+            $q += 1;
+            $s += 1;
+            if ($q == 2){
+                echo "</div>\n<div class='linha'>";
+                $q = 0;
+            } else {
+                if ($s <= $selecao){} else {
+                    echo "</div>";
+                }
+            }
+            }
+            ?>
+                </div>
+            </div> <!-- Fechando DIV pag  -->
 
             <?php
         } else if ($op == 2){
@@ -307,13 +413,13 @@
             }
 
             if (stripos($magias, $magia_atual) == false){
-                $texto_sql = "UPDATE cad_user SET magias='$magias $magia_atual' WHERE nome='$nome'";
+                $texto_sql = "UPDATE cad_user SET magias='$magias;$magia_atual' WHERE nome='$nome'";
                 $con = conecta();
                 $result = mysqli_query($con,$texto_sql);
 
                 trocaPagina("?op=0");
             } else {
-                $magias = str_replace(" $magia_atual", "", $magias);
+                $magias = str_replace(";$magia_atual", "", $magias);
 
                 $texto_sql = "UPDATE cad_user SET magias='$magias' WHERE nome='$nome'";
                 $con = conecta();
