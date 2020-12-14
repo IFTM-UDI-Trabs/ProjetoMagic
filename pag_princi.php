@@ -208,7 +208,7 @@
         } else if ($op == 1){
             ?>
             <div class="pag">
-                <div class="magias">
+                <div class="magias_linha">
                 <?php
 
                 $conetca = conecta();
@@ -222,11 +222,13 @@
 
                 $contador = substr_count($nome_fav_result, ";");
                 $eba = $contador;
-                $eba -= 1;
+                $eba = 2;
                 $letra = strlen($nome_fav_result);
                 $x = 1;
 
                 $nomes = array();
+
+                $pos = 0;
 
                 $pontoVirgula = stripos($nome_fav_result, ";");
                 $nome_fav_result = substr_replace($nome_fav_result, "", $pontoVirgula, 1);
@@ -236,14 +238,23 @@
                 } else {
                     while($contador >= $x){
                         if ($eba == 0){
-                            $pontoVirgula = (strripos($nome_fav_result, ":") + 1);
-                            $nomes[$x] = substr($nome_fav_result, $pontoVirgula);
+                            // $pontoVirgula = (strripos($nome_fav_result, ":") + 1);
+                            // $nomes[$x] = substr($nome_fav_result, $pontoVirgula);
+
+                            $nomes[$x] = $nome_fav_result;
                         } else {
-                            $pontoVirgula = stripos($nome_fav_result, ";");
-                            $nome_fav_result = substr_replace($nome_fav_result, ":", $pontoVirgula, 1);
+                            $pontoVirgula = strpos($nome_fav_result, ";");
                             $nomes[$x] = substr($nome_fav_result, 0, $pontoVirgula);
+                            $nome_fav_result = substr_replace($nome_fav_result, "", 0, ($pontoVirgula + 1));
                             $eba = substr_count($nome_fav_result, ";");
                         }
+
+                        //bola;fogao;dimonho
+                        //nome[0] = "bola";
+                        //bola:fogao;dimonho
+                        //nome[1] = "bola:fogao";
+                        //bola:fogao:dimonho
+                        //nome[2] = "dimonho";
                         
                         $x += 1;
                     }
@@ -565,7 +576,6 @@
 
             $con = conecta();
             $texto_sql = "UPDATE cad_user SET nome='$nome_nv', data_nascimento='$data_nv', senha='$senha_nv' WHERE email='$email'";
-            mensagem($texto_sql);
             $resultado = mysqli_query($con, $texto_sql);
 
             if ($resultado > 0){

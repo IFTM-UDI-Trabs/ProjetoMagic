@@ -118,6 +118,10 @@ body, html{
     margin-top: 6vh;
 }
 
+.magias_linha{
+    margin-top: 6vh;
+}
+
 .linha{
     display: flex;
     width: 100%;
