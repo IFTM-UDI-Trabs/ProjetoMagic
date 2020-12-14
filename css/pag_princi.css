@@ -19,7 +19,7 @@ body, html{
 
 .pag{
     width: 70vw;
-    min-height: 100vw;
+    min-height: 100vh;
     position: absolute;
     top: 0;
     right: 0;
@@ -363,6 +363,25 @@ body, html{
     font-size: 1.2vw;
 }
 
+#senha{
+    width: 12vw;
+    margin-right: 1vw;
+}
+
+.btn{
+    background-color: #e83435;
+    color: white;
+    border: none;
+    width: 7vw;
+    border-radius: .4vw;
+}
+
+.btn:focus{
+    outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}
+
 .botoes{
     margin: 6vh auto;
     width: 30vw;
@@ -395,4 +414,42 @@ body, html{
 .linha_full .like button{
     left: 30vw;
     bottom: 0vw;
+}
+
+.btnEnviar{
+    width: 35vw;
+    padding: 2vh 0;
+    font-size: 1.3vw;
+    background-color: #22b222;
+    border: none;
+    border-radius: .4vw;
+    color: white;
+    font-weight: bold;
+}
+
+.tituloform{
+    text-align: center;
+    font-size: 2vw;
+    color: #2753be;
+    margin: 0 0 4vh;
+}
+
+.form{
+    background-color: white;
+    margin: 0 15vw;
+    padding: 5vh 0;
+    border-radius: 1vw;
+}
+
+.apagar{
+    display: inline-block;
+    font-size: 1.5vw;
+    width: 35vw;
+    padding: 2vh 0;
+    margin: 8vh 17vw 8vh;
+    background-color: #e83435;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: .4vw;
 }

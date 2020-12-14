@@ -35,9 +35,13 @@
                         ?>
                             <img class="img" src="img/vetordois.png">
                         <?php
-                    } else {
+                    } else if ($op == 2) {
                         ?>
                             <img class="imgmago" src="img/vetortres.png">
+                        <?php
+                    } else {
+                        ?>
+                            <img class="img" src="img/eng.png">
                         <?php
                     }
                 ?>
@@ -52,6 +56,7 @@
                     ?>
                             <li><a href="?op=1">Magias Preferidas</a></li>
                             <li><a href="?op=2">Minhas Magias</a></li>
+                            <li><a href="?op=4">Perfil</a></li>
                             <li><a href="index.php">Sair</a></li>
                     <?php
                         } else if ($op == 1){
@@ -61,6 +66,7 @@
                             echo "<li class='selec'><a href='?op=1'>Magias Preferidas</a></li>";
                     ?>
                             <li><a href="?op=2">Minhas Magias</a></li>
+                            <li><a href="?op=4">Perfil</a></li>
                             <li><a href="index.php">Sair</a></li>
                     <?php
                         } else if ($op == 2){
@@ -70,8 +76,29 @@
                     <?php
                             echo "<li class='selec'><a href='?op=2'>Minhas Magias</a></li>";
                     ?>
+                            <li><a href="?op=4">Perfil</a></li>
                             <li><a href="index.php">Sair</a></li>
                     <?php
+                        } else if ($op == 4){
+                    ?>
+                            <li><a href="?op=0">Magias Universais</a></li>
+                            <li><a href="?op=1">Magias Preferidas</a></li>
+                            <li><a href="?op=2">Minhas Magias</a></li>
+                    <?php
+                            echo "<li class='selec'><a href='?op=4'>Perfil</a></li>";
+                    ?>
+                            <li><a href="index.php">Sair</a></li>
+                    <?php
+                        } else if ($op == 5){
+                        ?>
+                                <li><a href="?op=0">Magias Universais</a></li>
+                                <li><a href="?op=1">Magias Preferidas</a></li>
+                                <li><a href="?op=2">Minhas Magias</a></li>
+                        <?php
+                                echo "<li class='selec'><a href='?op=4'>Perfil</a></li>";
+                        ?>
+                                <li><a href="index.php">Sair</a></li>
+                        <?php
                         }
                     ?>
                 </ul>
@@ -472,6 +499,195 @@
             }
 
             
+        } else if ($op == 4){
+
+            $conetca = conecta();
+
+            $texto_sql = @ "SELECT * FROM cad_user WHERE nome='$nome'";
+            $resultado = @ mysqli_query($conetca, $texto_sql);
+
+            while($linha = mysqli_fetch_array($resultado)){
+                $nome_tabela = $linha['nome'];
+                $datanascimento = $linha['data_nascimento'];
+                $email = $linha['email'];
+                $senha = $linha['senha'];
+            }
+
+            ?>
+                <div class="pag">
+
+                    <button class="apagar" type="button" onclick="apagar()">Apagar Conta</button>
+
+                    <form action="?op=5" method="POST" class="form">
+                        <h2 class="tituloform">Dados Pessoais</h2>
+                        <div class="input">
+                            <label>Nome</label>
+                            <?php
+                            echo "<input type='text' value='$nome_tabela' class='nome' name='nome' maxlength='64' placeholder='Digite seu Nome'>";
+                            ?>
+                        </div>
+
+                        <div class="input">
+                            <label>Email</label>
+                            <?php
+                            echo "<input type='email' value='$email' class='email' name='email' maxlength='64' placeholder='Digite seu Email:' disabled>";
+                            echo "<input type='email' value='$email' class='email' name='email' maxlength='64' placeholder='Digite seu Email:' style='display: none;'>";
+                            ?>
+                        </div>
+
+                        <div class="input">
+                            <label>Data de Nascimento</label>
+                            <?php
+                            echo "<input type='date' value='$datanascimento' class='data' name='data_nascimento'>";
+                            ?>
+                        </div>
+
+                        <div class="input">
+                            <label>Senha</label>
+                            <?php
+                            echo "<input type='password' value='$senha' id='senha' class='senha' name='senha' minlength='6' maxlength='16' placeholder='Crie uma senha:'>"
+                            ?>
+                            <button class="btn" type="button" onclick="mudatipo()">Mostrar Senha</button>
+                        </div>
+                        
+                        
+                        <div class="input">
+                            <button type="submit" class="btnEnviar">Alterar</button>
+                        </div>
+                    </form>
+                </div>
+            <?php
+        } else if ($op == 5){
+            $nome_nv = $_REQUEST['nome'];
+            $email = $_REQUEST['email'];
+            $data_nv = $_REQUEST['data_nascimento'];
+            $senha_nv = $_REQUEST['senha'];
+
+            $con = conecta();
+            $texto_sql = "UPDATE cad_user SET nome='$nome_nv', data_nascimento='$data_nv', senha='$senha_nv' WHERE email='$email'";
+            mensagem($texto_sql);
+            $resultado = mysqli_query($con, $texto_sql);
+
+            if ($resultado > 0){
+                mensagem("Dados enviados com sucesso!");
+
+                $_SESSION['nome'] = $nome_nv;
+
+                $conetca = conecta();
+
+                $texto_sql = @ "SELECT * FROM cad_user WHERE nome='$nome_nv'";
+                $resultado = @ mysqli_query($conetca, $texto_sql);
+
+                while($linha = mysqli_fetch_array($resultado)){
+                    $nome_tabela = $linha['nome'];
+                    $datanascimento = $linha['data_nascimento'];
+                    $email = $linha['email'];
+                    $senha = $linha['senha'];
+                }
+
+                ?>
+                    <div class="pag">
+
+                        <button class="apagar" type="button" onclick="apagar()">Apagar Conta</button>
+
+                        <form action="?op=5" method="POST" class="form">
+                            <h2 class="tituloform">Dados Pessoais</h2>
+                            <div class="input">
+                                <label>Nome</label>
+                                <?php
+                                echo "<input type='text' value='$nome_tabela' class='nome' name='nome' maxlength='64' placeholder='Digite seu Nome'>";
+                                ?>
+                            </div>
+
+                            <div class="input">
+                                <label>Email</label>
+                                <?php
+                                echo "<input type='email' value='$email' class='email' name='email' maxlength='64' placeholder='Digite seu Email:' disabled>";
+                                ?>
+                            </div>
+
+                            <div class="input">
+                                <label>Data de Nascimento</label>
+                                <?php
+                                echo "<input type='date' value='$datanascimento' class='data' name='data_nascimento'>";
+                                ?>
+                            </div>
+
+                            <div class="input">
+                                <label>Senha</label>
+                                <?php
+                                echo "<input type='password' value='$senha' id='senha' class='senha' name='senha' minlength='6' maxlength='16' placeholder='Crie uma senha:'>"
+                                ?>
+                                <button class="btn" type="button" onclick="mudatipo()">Mostrar Senha</button>
+                            </div>
+                            
+                            
+                            <div class="input">
+                                <button type="submit" class="btnEnviar">Alterar</button>
+                            </div>
+                        </form>
+                    </div>
+                <?php
+            }
+            else{
+                mensagem("Ocorreu um erro ao enviar os dados, tente novamente.");
+
+                $conetca = conecta();
+
+                $texto_sql = @ "SELECT * FROM cad_user WHERE nome='$nome'";
+                $resultado = @ mysqli_query($conetca, $texto_sql);
+
+                while($linha = mysqli_fetch_array($resultado)){
+                    $nome_tabela = $linha['nome'];
+                    $datanascimento = $linha['data_nascimento'];
+                    $email = $linha['email'];
+                    $senha = $linha['senha'];
+                }
+
+                ?>
+                    <div class="pag">
+
+                        <button class="apagar" type="button" onclick="apagar()">Apagar Conta</button>
+
+                        <form action="?op=5" method="POST" class="form">
+                            <h2 class="tituloform">Dados Pessoais</h2>
+                            <div class="input">
+                                <label>Nome</label>
+                                <?php
+                                echo "<input type='text' value='$nome_tabela' class='nome' name='nome' maxlength='64' placeholder='Digite seu Nome'>";
+                                ?>
+                            </div>
+
+                            <div class="input">
+                                <label>Email</label>
+                                <?php
+                                echo "<input type='email' value='$email' class='email' name='email' maxlength='64' placeholder='Digite seu Email:' disabled>";
+                                ?>
+                            </div>
+
+                            <div class="input">
+                                <label>Data de Nascimento</label>
+                                <?php
+                                echo "<input type='date' value='$datanascimento' class='data' name='data_nascimento'>";
+                                ?>
+                            </div>
+
+                            <div class="input">
+                                <label>Senha</label>
+                                <?php
+                                echo "<input type='password' value='$senha' id='senha' class='senha' name='senha' minlength='6' maxlength='16' placeholder='Crie uma senha:'>"
+                                ?>
+                                <button class="btn" type="button" onclick="mudatipo()">Mostrar Senha</button>
+                            </div>
+                            
+                            
+                            <div class="input">
+                                <button type="submit" class="btnEnviar">Alterar</button>
+                            </div>
+                        </form>
+                    </div>
+                <?php
+            }
         }
     ?>
 
