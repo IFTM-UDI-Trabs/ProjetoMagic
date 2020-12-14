@@ -457,3 +457,43 @@ body, html{
     border: none;
     border-radius: .4vw;
 }
+
+#hidden{
+    position: fixed;
+    top: 20vh;
+    right: 30vw;
+    width: 40vw;
+    height: 60vh;
+    background-color: white;
+    border-radius: 1vw;
+    font-size: 1vw;
+    box-sizing: border-box;
+    z-index: 1000;
+    text-align: center;
+
+    padding: 17vh 5vw;
+}
+
+.cancelar_hidden{
+    display: inline-block;
+    font-size: 1.2vw;
+    padding: 1vh 2vw;
+    margin-left: 1.5vw;
+    background-color: #2753be;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: .4vw;
+}
+
+.apagar_hidden{
+    display: inline-block;
+    font-size: 1.2vw;
+    padding: 1vh 2vw;
+    margin-right: 1.5vw;
+    background-color: #e83435;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: .4vw;
+}

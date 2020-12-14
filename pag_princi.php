@@ -208,6 +208,9 @@
         } else if ($op == 1){
             ?>
             <div class="pag">
+
+                
+
                 <div class="magias_linha">
                 <?php
 
@@ -376,6 +379,9 @@
             ?>
             
             <div class="pag">
+
+                
+
                 <a class="button" href="cad_magia.php">Adicionar Magia +</a>
                 <div class="magias">
             <?php
@@ -527,6 +533,17 @@
             ?>
                 <div class="pag">
 
+                    <div id="hidden" style="display: none;">
+                        <form action="?op=6" method="POST">
+                            <h1>Voce tem certeza que deseja excluir a conta?</h1>
+                            <?php
+                            echo "<input type='text' value='$nome_tabela' name='nome' style='display: none;'>";
+                            ?>
+                            <button class="apagar_hidden" type="submit">Apagar Conta</button>
+                            <button class="cancelar_hidden" type="button" onclick="apagar()">Cancelar</button>
+                        </form>
+                    </div>
+
                     <button class="apagar" type="button" onclick="apagar()">Apagar Conta</button>
 
                     <form action="?op=5" method="POST" class="form">
@@ -598,6 +615,17 @@
                 ?>
                     <div class="pag">
 
+                        <div id="hidden" style="display: none;">
+                            <form action="?op=6" method="POST">
+                                <h1>Voce tem certeza que deseja excluir a conta?</h1>
+                                <?php
+                                echo "<input type='text' value='$nome_tabela' name='nome' style='display: none;'>";
+                                ?>
+                                <button class="apagar_hidden" type="submit">Apagar Conta</button>
+                                <button class="cancelar_hidden" type="button" onclick="apagar()">Cancelar</button>
+                            </form>
+                        </div>
+
                         <button class="apagar" type="button" onclick="apagar()">Apagar Conta</button>
 
                         <form action="?op=5" method="POST" class="form">
@@ -657,6 +685,17 @@
                 ?>
                     <div class="pag">
 
+                        <div id="hidden" style="display: none;">
+                            <form action="?op=6" method="POST">
+                                <h1>Voce tem certeza que deseja excluir a conta?</h1>
+                                <?php
+                                echo "<input type='text' value='$nome_tabela' name='nome' style='display: none;'>";
+                                ?>
+                                <button class="apagar_hidden" type="submit">Apagar Conta</button>
+                                <button class="cancelar_hidden" type="button" onclick="apagar()">Cancelar</button>
+                            </form>
+                        </div>
+                        
                         <button class="apagar" type="button" onclick="apagar()">Apagar Conta</button>
 
                         <form action="?op=5" method="POST" class="form">
@@ -698,6 +737,16 @@
                     </div>
                 <?php
             }
+            
+        } else if ($op == 6){
+            $nome = $_REQUEST['nome'];
+
+            $conetca = conecta();
+
+            $texto_sql = @ "DELETE FROM `cad_user` WHERE nome='$nome'";
+            $result = @ mysqli_query($conetca, $texto_sql);
+            trocaPagina("index.php");
+
         }
     ?>
 

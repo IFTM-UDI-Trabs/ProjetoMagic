@@ -84,7 +84,7 @@
                         ?>
 
                         <div class = "princ">
-                            <img src="logo.png" class="logo">
+                            <img src="img/logo.png" class="logo">
 
                             <form class="form" action="?op=1" method="POST">
 
@@ -141,7 +141,7 @@
                                 ?>
 
                                   <div class = "princ">
-                            <img src="logo.png" class="logo">
+                            <img src="img/logo.png" class="logo">
 
                             <form class="form" action="?op=1" method="POST">
 
@@ -168,14 +168,6 @@
 
                                 <?php
                             }
-
-                            if ($erro == true)
-                            {
-                                echo "<script type=\"text/javascript\" language=\"javascript\">";
-   					            echo "alert(\"$mensagem\");";
-   					            echo "</script>";
-                            }
-                            
                         }
                     }
                 }
