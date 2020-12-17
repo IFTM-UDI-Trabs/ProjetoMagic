@@ -131,6 +131,7 @@
                     $nivel_magia = $linha['nivel'];
                     $conjurador_magia = $linha['conjurador'];
                     $tempo_magia = $linha['tempoconj'];
+                    $ritual_magia = $linha['ritual'];
                     $alcance_magia = $linha['alcance'];
                     $componentes_magia = $linha['componentes'];
                     $duracao_magia = $linha['duracao'];
@@ -164,7 +165,11 @@
                             <?php
                             echo "<p><span class='sub'>Conjugadores:</span> <span class='conj'>$conjurador_magia</span></p>";
                             echo "<p><span class='sub'>Alcance:</span> $alcance_magia</p>";
-                            echo "<p><span class='sub'>Tempo de Conjuração:</span> $tempo_magia</p>";
+                            if ($ritual_magia == "N"){
+                                echo "<p><span class='sub'>Tempo de Conjuração:</span> $tempo_magia</p>";
+                            } else {
+                                echo "<p><span class='sub'>Tempo de Conjuração:</span> $tempo_magia (Ritual)</p>";
+                            }
                             echo "<p><span class='sub'>Componentes:</span> $componentes_magia</p>";
                             echo "<p><span class='sub'>Duração:</span> $duracao_magia</p>";
                             ?>
@@ -308,6 +313,7 @@
                             $escola_magia = $linha['escola'];
                             $nivel_magia = $linha['nivel'];
                             $conjurador_magia = $linha['conjurador'];
+                            $ritual_magia = $linha['ritual'];
                             $tempo_magia = $linha['tempoconj'];
                             $alcance_magia = $linha['alcance'];
                             $componentes_magia = $linha['componentes'];
@@ -335,7 +341,11 @@
                                     <?php
                                     echo "<p><span class='sub'>Conjugadores:</span> <span class='conj'>$conjurador_magia</span></p>";
                                     echo "<p><span class='sub'>Alcance:</span> $alcance_magia</p>";
-                                    echo "<p><span class='sub'>Tempo de Conjuração:</span> $tempo_magia</p>";
+                                    if ($ritual_magia == "N"){
+                                        echo "<p><span class='sub'>Tempo de Conjuração:</span> $tempo_magia</p>";
+                                    } else {
+                                        echo "<p><span class='sub'>Tempo de Conjuração:</span> $tempo_magia (Ritual)</p>";
+                                    }
                                     echo "<p><span class='sub'>Componentes:</span> $componentes_magia</p>";
                                     echo "<p><span class='sub'>Duração:</span> $duracao_magia</p>";
                                     ?>
@@ -404,6 +414,7 @@
                     $escola_magia = $linha['escola'];
                     $nivel_magia = $linha['nivel'];
                     $conjurador_magia = $linha['conjurador'];
+                    $ritual_magia = $linha['ritual'];
                     $tempo_magia = $linha['tempoconj'];
                     $alcance_magia = $linha['alcance'];
                     $componentes_magia = $linha['componentes'];
@@ -423,22 +434,36 @@
                     ?>
                     <div class="box_total">
                         <div class="box_inicio">
-                            <div class="title">
-                                <?php
-                                echo "<p>$nome_magia</p>";
-                                ?>
+                            <div>
+                                <div class="title">
+                                    <?php
+                                    echo "<p>$nome_magia</p>";
+                                    ?>
+                                </div>
+                                <div class="level">
+                                    <?php
+                                    echo "<p>$nivel_magia º nível de $escola_magia</p>"
+                                    ?>
+                                </div>
                             </div>
-                            <div class="level">
-                                <?php
-                                echo "<p>$nivel_magia º nível de $escola_magia</p>"
-                                ?>
+                            <div>
+                                <form action='alterar_magia.php' method='POST'>
+                                    <?php
+                                        echo "<input type=\"text\" value=\"$nome_magia\" style=\"display: none;\">";
+                                    ?>
+                                    <button class="eng" type="submit"><img  src="img/engrenagem.png"></button>
+                                </form>
                             </div>
                         </div>
                         <div class="info_basica">
                             <?php
                             echo "<p><span class='sub'>Conjugadores:</span> <span class='conj'>$conjurador_magia</span></p>";
                             echo "<p><span class='sub'>Alcance:</span> $alcance_magia</p>";
-                            echo "<p><span class='sub'>Tempo de Conjuração:</span> $tempo_magia</p>";
+                            if ($ritual_magia == "N"){
+                                echo "<p><span class='sub'>Tempo de Conjuração:</span> $tempo_magia</p>";
+                            } else {
+                                echo "<p><span class='sub'>Tempo de Conjuração:</span> $tempo_magia (Ritual)</p>";
+                            }
                             echo "<p><span class='sub'>Componentes:</span> $componentes_magia</p>";
                             echo "<p><span class='sub'>Duração:</span> $duracao_magia</p>";
                             ?>
@@ -686,8 +711,8 @@
                     <div class="pag">
 
                         <div id="hidden" style="display: none;">
-                            <form action="?op=6" method="POST">
-                                <h1>Voce tem certeza que deseja excluir a conta?</h1>
+                            <form action="apagar_magia.php" method="POST">
+                                <h1>Voce tem certeza que deseja excluir esta magia?</h1>
                                 <?php
                                 echo "<input type='text' value='$nome_tabela' name='nome' style='display: none;'>";
                                 ?>
@@ -696,7 +721,7 @@
                             </form>
                         </div>
                         
-                        <button class="apagar" type="button" onclick="apagar()">Apagar Conta</button>
+                        <button class="apagar" type="button" onclick="apagar()">Apagar a Magia</button>
 
                         <form action="?op=5" method="POST" class="form">
                             <h2 class="tituloform">Dados Pessoais</h2>

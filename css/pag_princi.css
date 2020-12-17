@@ -225,14 +225,27 @@ body, html{
 .box_inicio{
     min-height: 14vh;
     width: 100%;
-    /* display: flex;
-    justify-content: space-between;
+    /* display: flex; */
+    /* justify-content: space-between;
     flex-direction: row; */
     background-color: #2753be;
+    position: relative;
 
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     border-bottom: 2px solid #332d53;
+}
+
+.eng{
+    position: absolute;
+    top: 1.1vh;
+    right: 1.1vw;
+    border: none;
+    background-color: transparent;
+}
+
+.eng img{
+    width: 5.4vw;
 }
 
 .title{
