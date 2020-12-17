@@ -449,7 +449,7 @@
                             <div>
                                 <form action='alterar_magia.php' method='POST'>
                                     <?php
-                                        echo "<input type=\"text\" value=\"$nome_magia\" style=\"display: none;\">";
+                                        echo "<input type='text' name='nome' value='$nome_magia' style='display: none;'>";
                                     ?>
                                     <button class="eng" type="submit"><img  src="img/engrenagem.png"></button>
                                 </form>

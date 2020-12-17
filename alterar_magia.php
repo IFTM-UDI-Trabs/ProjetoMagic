@@ -5,6 +5,7 @@
     include ("funcoes.php");
     
     $op = @ $_REQUEST['op'];
+    $nome_form = @ $_REQUEST['nome'];
 
     if (!isset($op))
     {
@@ -48,7 +49,9 @@
     if ($op == 0){
         $conetca = conecta();
 
-        $texto_sql = @ "SELECT * FROM magia";
+        
+
+        $texto_sql = @ "SELECT * FROM magia WHERE nome='$nome_form'";
         $resultado = @ mysqli_query($conetca, $texto_sql);
 
         while ($linha = mysqli_fetch_array($resultado)){
@@ -66,32 +69,6 @@
             $descricaolvl_magia = $linha['descricaolvl'];
             $like_magia = $linha['curtidas'];
         }
-
-        // $contador = (substr_count($conjurador_magia, " ") + 1);
-        // $eba = $contador;
-        // $eba = 2;
-        // $letra = strlen($conjurador_magia);
-        // $x = 1;
-
-        // $nomes = array();
-
-        // $pos = 0;
-
-        // if (stripos($conjurador_magia, " ") == false){
-        //     $nomes[0] = $conjurador_magia;
-        // } else {
-        //     while($contador >= $x){
-        //         if ($eba == 0){
-        //             $nomes[$x] = $conjurador_magia;
-        //         } else {
-        //             $pontoVirgula = strpos($conjurador_magia, " ");
-        //             $nomes[$x] = substr($conjurador_magia, 1, $pontoVirgula);
-        //             $conjurador_magia = substr_replace($conjurador_magia, "", 1, ($pontoVirgula + 1));
-        //             $eba = substr_count($conjurador_magia, " ");
-        //         }
-        //         $x += 1;
-        //     }
-        // }
 
         $tconjuracao = substr($tempo_magia, 0, 1);
         ?>
